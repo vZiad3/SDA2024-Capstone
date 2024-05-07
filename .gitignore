@@ -23,6 +23,7 @@
 .idea
 test-output
 SDA2024-Capstone.iml
+target
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
