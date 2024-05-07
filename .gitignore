@@ -18,7 +18,10 @@
 # Generated files
 .idea/**/contentModel.xml
 
+
+#SDA Team2 Changes
 .idea
+test-output
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
