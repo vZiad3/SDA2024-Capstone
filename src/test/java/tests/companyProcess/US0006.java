@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.Company;
 import utilities.Driver;
+import utilities.ReusableMethods;
 import utilities.TestBase;
 
 import java.time.Duration;
@@ -43,8 +44,8 @@ public class US0006 extends TestBase {
 //        company.name.click();
         WebElement name = driver.findElement(nameField);
         name.click();
-        Thread.sleep(1000);
-       name.clear();
+        ReusableMethods.waitForVisibility(name,5);
+        name.clear();
     }
 
 }
