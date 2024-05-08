@@ -17,6 +17,15 @@ public class Company {
     public WebElement collapse;
     @FindBy(id = "name")
     public WebElement name;
+    @FindBy(xpath = "//button[@class='btn btn-outline-dark'][contains(text(),' Edit')]")
+    public WebElement editButton;
+    @FindBy(xpath = "//button[@type='button'][contains(text(),'Save')]")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//input[@placeholder='Company Email']")
+    public WebElement emailField;
+    @FindBy(xpath = "//*[@id='MainContent']//h5[contains(text(),'Company Information')]")
+    public WebElement infoOfTheCompany;
 
 
 }

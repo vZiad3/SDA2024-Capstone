@@ -16,11 +16,21 @@ public class HomePage {
     @FindBy(id = "link6")
     public WebElement remoteUnitIcon ;
 
+    @FindBy(xpath = "//li[@class='list-group-item'][@id='link4']")
+
+    public WebElement companyButton;
+
     public void remoteUnitClick()
     {
         log.defaultLogin();
         //Click on "Remote Units" icon on the side menu.
         remoteUnitIcon.click();
+    }
+
+    public void companyClick(){
+        log.defaultLogin();
+        //Click on "Company" icon on the side menu.
+        companyButton.click();
     }
 
 }
