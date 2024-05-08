@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.Company;
+import utilities.Driver;
 import utilities.TestBase;
 
 import java.time.Duration;
@@ -20,21 +21,21 @@ public class US0006 extends TestBase {
 
 
 
-    @BeforeTest
-            public void collapse() {
-        WebElement Coll = driver.findElement(collField);
-        Coll.click();
-          // company.companyButton.click();
-       WebElement companyButton = driver.findElement(companyButtonField);
-       companyButton.click();
+   @BeforeTest
+           public void collapse() {
+       WebElement Coll = driver.findElement(collField);
+       Coll.click();
+         // company.companyButton.click();
+      WebElement companyButton = driver.findElement(companyButtonField);
+      companyButton.click();
 
-    }
+   }
 
 
     @Test
     public void updateName() throws InterruptedException {
 
-//        company.collapse.click();
+          //company.collapse.click();
         WebElement editButton = driver.findElement(editButtonField);
         editButton.click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -42,7 +43,8 @@ public class US0006 extends TestBase {
 //        company.name.click();
         WebElement name = driver.findElement(nameField);
         name.click();
-        name.sendKeys(Keys.DELETE);
+        Thread.sleep(1000);
+       name.clear();
     }
 
 }

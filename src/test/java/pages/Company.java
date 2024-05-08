@@ -10,8 +10,10 @@ public class Company {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(xpath = "//li[@class='list-group-item'][@id='link4']")
+
     public WebElement companyButton;
     @FindBy(xpath = "//div[@id='divCollapseUncollapse']")
+
     public WebElement collapse;
     @FindBy(id = "name")
     public WebElement name;
