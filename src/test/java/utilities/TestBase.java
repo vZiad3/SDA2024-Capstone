@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -15,8 +16,8 @@ public class TestBase {
 
 
 
-    @BeforeMethod
-    public void beforeMethod(){
+    @BeforeSuite
+    public void BeforeSuite(){
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -36,7 +37,7 @@ public class TestBase {
 
         // Enter a valid password
         WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("-lLTYxayrK3ZWr8");
+        passwordField.sendKeys("TestPass123@");
 
         // Click on the "SignIn" button
         WebElement SignIn = driver.findElement(By.xpath("//button[@type='submit']"));
@@ -44,12 +45,12 @@ public class TestBase {
 
     }
 
-    @AfterMethod
+  /*  @AfterMethod
     public void afterMethod(){
         if(driver != null){
             driver.quit();
             driver = null;
         }
     }
-
+*/
 }
