@@ -54,7 +54,8 @@ public class US0013 extends TestBase {
         WebElement SaveButton = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[5]/div/span/div/button[1]"));
         SaveButton.click();
 
-        Assert.assertEquals();
+        WebElement successAlert = driver.findElement(By.xpath("//*[contains(text(),'New department successfully created')]"));
+        Assert.assertTrue(successAlert.isDisplayed(), "Success alert message is not displayed.");
     }
 
     @Test
