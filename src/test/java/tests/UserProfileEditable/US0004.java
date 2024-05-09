@@ -24,6 +24,7 @@ public class US0004  {
        logInPage.defaultLogin();
      ProfilePage.ClickChangePasswordButton();
        ProfilePage.validPassword();
+       ProfilePage.successAssert();
    }
 
     @Test  //Password Less 8
@@ -31,6 +32,7 @@ public class US0004  {
         logInPage.defaultLogin();
         ProfilePage.ClickChangePasswordButton();
         ProfilePage.PasswordLess8();
+        ProfilePage.ErrorAssertForPassword();
     }
 
     @Test //Password With Upper Case
@@ -38,9 +40,7 @@ public class US0004  {
         logInPage.defaultLogin();
        ProfilePage.DeletePassword();
         ProfilePage.PasswordWithUpperCase();
-
-
-
+        ProfilePage.ErrorAssertForPassword();
     }
 
     @Test  //Password Without Special Case
@@ -48,6 +48,7 @@ public class US0004  {
         logInPage.defaultLogin();
         ProfilePage.DeletePassword();
         ProfilePage.PasswordWithoutSpecialCase();
+        ProfilePage.ErrorAssertForPassword();
     }
 
     @Test  //Password Contains Special Characters But No Uppercase Letter
@@ -55,6 +56,7 @@ public class US0004  {
         logInPage.defaultLogin();
         ProfilePage.DeletePassword();
         ProfilePage.PasswordContainsSpecialCharactersButNoUppercaseLetter();
+        ProfilePage.ErrorAssertForPassword();
     }
 
     @Test  //Update Username valid characters
@@ -69,31 +71,31 @@ public class US0004  {
     public void TC0004_07() {
         logInPage.defaultLogin();
         ProfilePage.UsernameEndsWithSpecialCharacter();
+        ProfilePage.ErrorAssertForUser();
+
     }
 
     @Test  //set username empty
     public void TC0004_08() {
         logInPage.defaultLogin();
+
         ProfilePage.setUsernameEmpty();
+     ProfilePage.EmptyAssert();
     }
 
     @Test  //Update Username starts with a number
     public void TC0004_09() {
         logInPage.defaultLogin();
         ProfilePage.UsernameStartsWithNumber();
-
+        ProfilePage.ErrorAssertForUser();
     }
     @Test  //Update Username contains invalid special character
     public void TC0004_10() {
         logInPage.defaultLogin();
         ProfilePage.UsernameWithInvalidSpecialCharacter();
-
+        ProfilePage.ErrorAssertForUser();
     }
-    @Test  // Attempting to change email
-    public void TC0004_11() {
-        logInPage.defaultLogin();
 
-    }
 
 }
 
