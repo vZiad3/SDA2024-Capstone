@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.TestBase;
 
+import java.util.List;
+
 public class US0013 extends TestBase {
 
 
@@ -21,7 +23,6 @@ public class US0013 extends TestBase {
         WebElement teamButton = driver.findElement(By.id("link7"));
         teamButton.click();
 
-        // Additional verification steps can be added here if needed
     }
 
     @Test
@@ -54,12 +55,16 @@ public class US0013 extends TestBase {
         WebElement SaveButton = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[5]/div/span/div/button[1]"));
         SaveButton.click();
 
-        WebElement successAlert = driver.findElement(By.xpath("//*[contains(text(),'New department successfully created')]"));
-        Assert.assertTrue(successAlert.isDisplayed(), "Success alert message is not displayed.");
+
+
+        // to find the alert by text and put it in a list for asserting by size
+        List<WebElement> SucAlert = driver.findElements(By.xpath("//*[text()='New department successfully created']"));
+        //To assert "New department successfully created"
+        Assert.assertTrue(SucAlert.size() > 0);
     }
 
     @Test
-    public void TC0013_03(){
+    public void TC0013_03() {
         // User cannot add a team without a name
         // Steps
         // Navigate to the Teams module
@@ -74,17 +79,24 @@ public class US0013 extends TestBase {
         WebElement addButton = driver.findElement(By.xpath("//*[@id='MainContent']/div/div[1]/div[2]/a/button"));
         addButton.click();
 
-        // Do not fill in the Team Name field
+        //  WebElement teamNameField = driver.findElement(By.id("name"));
+        // teamNameField.sendKeys("Test Team 1");
 
         WebElement departmentType = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[2]/div[3]/div/div"));
         departmentType.click();
 
-        WebElement typeOption = driver.findElement(By.xpath("(//div[@class='css-d7l1ni-option'])[3]"));
-        typeOption.click();
+        Actions actions = new Actions(driver);
 
-        // Save form
+        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).perform();
 
-        // Additional verification steps can be added here if needed
+        actions.sendKeys(Keys.ENTER).perform();
+
+        WebElement SaveButton = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[5]/div/span/div/button[1]"));
+        SaveButton.click();
+
+        WebElement errorMsg = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[2]/div[1]/span"));
+        Assert.assertTrue(errorMsg.isDisplayed(), "error Msg is not displayed");
+
     }
 
     @Test
@@ -106,10 +118,12 @@ public class US0013 extends TestBase {
         WebElement teamNameField = driver.findElement(By.id("name"));
         teamNameField.sendKeys("Test Team 1");
 
-        // Do not choose a type
 
-        // Save form
+        WebElement SaveButton = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[5]/div/span/div/button[1]"));
+        SaveButton.click();
 
-        // Additional verification steps can be added here if needed
+        WebElement ErrorMsg = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[2]/div[3]/span"));
+        Assert.assertTrue(ErrorMsg.isDisplayed(), "Element is not displayed");
+
     }
 }
