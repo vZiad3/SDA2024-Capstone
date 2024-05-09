@@ -16,7 +16,7 @@ public class TestBase {
 
 
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeSuite(){
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
