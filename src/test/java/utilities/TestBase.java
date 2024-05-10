@@ -34,11 +34,11 @@ public class TestBase {
 
             // Enter a valid email address
             WebElement emailField = driver.findElement(By.id("username"));
-            emailField.sendKeys("cstm@qualitron.com");
+            emailField.sendKeys("cstm@testevolve.com");
 
             // Enter a valid password
             WebElement passwordField = driver.findElement(By.id("password"));
-            passwordField.sendKeys("TestPass123@");
+            passwordField.sendKeys("CvdPixvARzUrmuR");
 
             // Click on the "SignIn" button
             WebElement SignIn = driver.findElement(By.xpath("//button[@type='submit']"));
