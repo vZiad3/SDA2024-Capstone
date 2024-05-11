@@ -1,7 +1,9 @@
 package tests.companyProcess;
 
+import com.github.javafaker.Faker;
 import com.github.javafaker.Space;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -18,15 +20,20 @@ import utilities.TestBase;
 import java.time.Duration;
 import java.util.List;
 
-public class US0006  {
-    LogInPage log = new LogInPage();
-    HomePage homePage = new HomePage();
-    Company company = new Company();
-    By collField = By.xpath("//div[@id='divCollapseUncollapse']");
-    By companyButtonField = By.xpath("//li[@class='list-group-item'][@id='link4']");
-    By editButtonField = By.xpath("//button[@class='btn btn-outline-dark'][contains(text(),' Edit')]");
-    By nameField = By.id("name");
+import static java.awt.SystemColor.window;
 
+//  import static utilities.Driver.driver;
+
+public class US0006  {
+    LogInPage log;
+    HomePage homePage;
+    Company company;
+    Faker faker;
+//    By collField = By.xpath("//div[@id='divCollapseUncollapse']");
+//    By companyButtonField = By.xpath("//li[@class='list-group-item'][@id='link4']");
+//    By editButtonField = By.xpath("//button[@class='btn btn-outline-dark'][contains(text(),' Edit')]");
+//    By nameField = By.id("name");
+//
 
 
 //   @BeforeTest
@@ -40,13 +47,19 @@ public class US0006  {
 //   }
 
 
-
-    //Changing the name and assert
+    //update the name
     @Test
     public void TC0006_01() {
 
+        homePage = new HomePage();
+        log = new LogInPage();
+        company = new Company();
+        faker = new Faker();
     //Going in the home page
+        log.defaultLogin();
        homePage.companyClick();
+       //if the company is displayed within the page
+       Assert.assertTrue(company.companyButton.isDisplayed());                      // // / // / /
 
     //Clicking the button of the Company
         company.editButton.click();
@@ -57,20 +70,30 @@ public class US0006  {
         //Clear the name field
      company.name.clear();
      //Sending the name i want
-        String name = "Ziad";
+        String name = faker.name().firstName();
         company.name.sendKeys(name);
       company.saveButton.click();
 
         //Assert the message displayed
-    List<WebElement> mes = Driver.getDriver().findElements(By.xpath("//div[@class='toast-body']"));
+    List<WebElement> mes = Driver.getDriver().findElements(By.xpath("//div[@class='toast-body']"));         // / / / // / /
         Assert.assertTrue(mes.size() > 0);
-        Driver.getDriver().close();
-    }
 
-    @Test
+        ReusableMethods.waitFor(2);
+       // Driver.getDriver().close();
+
+
+
+
+    }
+//Update the email
+    @Test(dependsOnMethods = "TC0006_01")
     public void TC0006_02(){
+        homePage = new HomePage();
+        log = new LogInPage();
+        company = new Company();
+        faker = new Faker();
         //Going in the home page
-        homePage.companyClick();
+      //  homePage.companyClick();
 
         //Clicking the button of the Company
         company.editButton.click();
@@ -80,21 +103,30 @@ public class US0006  {
         company.emailField.clear();
         ReusableMethods.waitFor(2);
         //change the email field
-        String name = "Ziad@gmail.com";
-        company.emailField.sendKeys(name);
+        String email = faker.internet().emailAddress();
+        company.emailField.sendKeys((email));
 
         company.saveButton.click();
         List<WebElement> mes = Driver.getDriver().findElements(By.xpath("//div[@class='toast-body']"));
+
         Assert.assertTrue(mes.size() > 0);
+        ReusableMethods.waitFor(2);
+
+
+
 
     }
 
+    //Automation error
     //Here we clear the name and we Click save ' There should be error message' and it dosent shows
-    @Test
+    @Test(dependsOnMethods = "TC0006_01")
     public void TC0006_03(){
+        homePage = new HomePage();
+        log = new LogInPage();
+        company = new Company();
 
     //Going in the home page
-    homePage.companyClick();
+   // homePage.companyClick();
 
     //Clicking the button of the Company
     company.editButton.click();
@@ -106,7 +138,7 @@ public class US0006  {
     company.name.clear();
 
         //Click save
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(4);
     company.saveButton.click();
 
 
@@ -115,10 +147,13 @@ public class US0006  {
 
 @Ignore
 // We will ignore this because its a bug, we should use the corrected format with the email including " @ " and " . "
-    @Test(ignoreMissingDependencies = true)
+@Test(dependsOnMethods = "TC0006_01")
     public void TC0006_04(){
+    homePage = new HomePage();
+    log = new LogInPage();
+    company = new Company();
         //Going in the home page
-        homePage.companyClick();
+       // homePage.companyClick();
 
         //Clicking the button of the Company
         company.editButton.click();
@@ -132,18 +167,22 @@ public class US0006  {
         company.emailField.sendKeys(name);
 
         company.saveButton.click();
-
+    List<WebElement> mes = Driver.getDriver().findElements(By.xpath("//div[@class='toast-body']"));
+    Assert.assertTrue(mes.size() > 0);
 
     }
 
-    @Ignore
+@Ignore
     //i am going to ignore this case because it's a bug!, we shouldn't use specials characters in the beginning of the name and there should be no spaces
     //error message should apear, and it dosent
-    @Test(ignoreMissingDependencies = true)
+@Test(dependsOnMethods = "TC0006_01")
     public void TC0006_05() {
+    homePage = new HomePage();
+    log = new LogInPage();
+    company = new Company();
 
         //Going in the home page
-        homePage.companyClick();
+       // homePage.companyClick();
 
         //Clicking the button of the Company
         company.editButton.click();
@@ -154,28 +193,36 @@ public class US0006  {
         //Clear the name field
         company.name.clear();
         //Sending the name i want
-        String name = "@#$%^&Zi a d ";
+        String name = "@# $ % " + faker.name().firstName()+ " 2 3";
         company.name.sendKeys(name);
         company.saveButton.click();
 
-        // After Clicking error message should apear for using the correct formart for the name
+        // After Click, error message should appear for using the correct format for the name
     }
-    @Test
+    @Ignore
+    @Test(dependsOnMethods = "TC0006_01")
     public void TC0006_06(){
+        homePage = new HomePage();
+        log = new LogInPage();
+        company = new Company();
         log.defaultLogin();
         //Assert of we can see the company field
         Assert.assertTrue(company.companyButton.isDisplayed());
 
-    }    @Test
+    }
+
+    @Ignore
+    @Test
     public void TC0006_07(){
+        homePage = new HomePage();
+        log = new LogInPage();
+        company = new Company();
+
         log.defaultLogin();
         company.companyButton.click();
         //If the company information is visiable its mean PASS
-        Assert.assertTrue(company.infoOfTheCompany.isDisplayed());
+        Assert.assertTrue(company.infoOfTheCompany.isDisplayed());                          //      /   /   /   /   /
     }
-
-
-
 
     }
 

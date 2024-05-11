@@ -28,7 +28,7 @@ public class HomePage {
     }
 
     public void companyClick(){
-        log.defaultLogin();
+       // log.defaultLogin();
         //Click on "Company" icon on the side menu.
         companyButton.click();
     }

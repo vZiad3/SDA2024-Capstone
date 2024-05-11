@@ -1,5 +1,6 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,6 +10,7 @@ public class Company {
     public Company(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
+    Faker faker = new Faker();
     @FindBy(xpath = "//li[@class='list-group-item'][@id='link4']")
 
     public WebElement companyButton;
@@ -26,6 +28,8 @@ public class Company {
     public WebElement emailField;
     @FindBy(xpath = "//*[@id='MainContent']//h5[contains(text(),'Company Information')]")
     public WebElement infoOfTheCompany;
+
+
 
 
 }
