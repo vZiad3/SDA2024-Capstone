@@ -19,8 +19,16 @@ public class HomePage {
     @FindBy(id = "link2")
     public  WebElement mempership ;
 
-@FindBy(xpath = "//div[@class='col-9']")
+@FindBy(xpath ="//div[@class='col-9']")
 public WebElement buttun;
+
+
+@FindBy(xpath = "//*[@id='Header']/div/div/div/button")
+public WebElement slider;
+
+
+
+
     public void remoteUnitClick()
     {
         log.defaultLogin();
@@ -31,9 +39,17 @@ public WebElement buttun;
     public void mempershipclick()
     {
         log.defaultLogin();
-        //Click on "Remote Units" icon on the side menu.
+        //Click on "Mepership" icon on the side menu.
         mempership.click();
     }
+
+    public void clickSliderButton() {
+        log.defaultLogin();
+        // Click on the slider button.
+        slider.click();
+    }
+
+
 
 
 }

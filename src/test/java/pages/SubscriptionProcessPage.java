@@ -24,9 +24,22 @@ public class SubscriptionProcessPage {
     public WebElement mepershipInfo;
 
 
+    @FindBy(xpath = "//*[@id='MainContent']/div/div[1]/div/h3")
+    public WebElement mepershipTitle;
+
+
+
+    @FindBy(xpath = "(//a[normalize-space()='My Memberships'])[1]")
+    public WebElement mempershipslider;
+
 
     public void mepershipOne(){
         mepershipDiv.get(0).click();
+    }
+
+    public void clickmempershipclick() {
+        // Click on the slider button.
+        mempershipslider.click();
     }
 
 }

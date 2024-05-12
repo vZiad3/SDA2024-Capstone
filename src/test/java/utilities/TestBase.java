@@ -36,7 +36,7 @@ public class TestBase {
 
         // Enter a valid password
         WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("-lLTYxayrK3ZWr8");
+        passwordField.sendKeys("RrUOrnUvuA3fiic");
 
         // Click on the "SignIn" button
         WebElement SignIn = driver.findElement(By.xpath("//button[@type='submit']"));
