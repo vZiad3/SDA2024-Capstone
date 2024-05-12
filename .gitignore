@@ -24,6 +24,7 @@
 test-output
 SDA2024-Capstone.iml
 target
+allure-results
 
 # Sensitive or high-churn files
 .idea/**/dataSources/

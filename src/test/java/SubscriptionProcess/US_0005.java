@@ -3,13 +3,8 @@ package SubscriptionProcess;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.LogInPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import pages.SubscriptionProcessPage;
 import utilities.Driver;
-import utilities.TestBase;
 
 public class US_0005 {
 
