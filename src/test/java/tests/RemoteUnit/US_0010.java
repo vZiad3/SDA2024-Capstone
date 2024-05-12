@@ -12,13 +12,6 @@ public class US_0010 {
     HomePage homePage = new HomePage();
     RemoteUnitsPage remoteUnitsPage =new RemoteUnitsPage();
 
-  /*  @BeforeSuite
-    public void beforeClass() {
-        Driver.getDriver().get(ConfigReader.getProperty("website"));
-       String username= ConfigReader.getProperty("email3");
-       String password= ConfigReader.getProperty("password3");
-        log.login(username, password);
-    }*/
 
     @Test
     public void TC0010_01() {
@@ -41,10 +34,5 @@ public class US_0010 {
 
 
     }
-
-
-
-
-
 
 }

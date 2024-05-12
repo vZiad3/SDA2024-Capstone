@@ -2,14 +2,10 @@ package tests.companyProcess;
 
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.Space;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.Company;
@@ -17,12 +13,8 @@ import pages.HomePage;
 import pages.LogInPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
-import utilities.TestBase;
 
-import java.time.Duration;
 import java.util.List;
-
-import static java.awt.SystemColor.window;
 
 //  import static utilities.Driver.driver;
 
