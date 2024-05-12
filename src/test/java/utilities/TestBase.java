@@ -3,7 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -24,28 +23,29 @@ public class TestBase {
         driver.manage().window().maximize();
     }
 
+
     public void BeforeSuite() {
+        {
+            driver = new ChromeDriver();
+            //driver = new FirefoxDriver();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+            driver.manage().window().maximize();
 
-        driver = new ChromeDriver();
-        //driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.manage().window().maximize();
+            //Go to URL: https://qa-gm3.quaspareparts.com/
+            driver.get("https://qa-gm3.quaspareparts.com/");
 
-        //Go to URL: https://qa-gm3.quaspareparts.com/
-        driver.get("https://qa-gm3.quaspareparts.com/");
+            // Find the login button element using the XPath expression
+            WebElement loginButton = driver.findElement(By.xpath("//html/body/div/a"));
+            // Click on the login button
+            loginButton.click();
 
-        // Find the login button element using the XPath expression
-        WebElement loginButton = driver.findElement(By.xpath("//html/body/div/a"));
-        // Click on the login button
-        loginButton.click();
+            // Enter a valid email address
+            WebElement emailField = driver.findElement(By.id("username"));
+            emailField.sendKeys("cstm@testevolve.com");
 
-        // Enter a valid email address
-        WebElement emailField = driver.findElement(By.id("username"));
-        emailField.sendKeys("cstm@testevolve.com");
-
-        // Enter a valid password
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("TestPass123@");
+            // Enter a valid password
+            WebElement passwordField = driver.findElement(By.id("password"));
+            passwordField.sendKeys("CvdPixvARzUrmuR");
 
         // Enter a valid password
         WebElement passwordField1 = driver.findElement(By.id("password"));

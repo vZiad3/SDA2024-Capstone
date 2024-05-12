@@ -1,10 +1,12 @@
 package tests.companyProcess;
 
+
 import com.github.javafaker.Faker;
 import com.github.javafaker.Space;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;

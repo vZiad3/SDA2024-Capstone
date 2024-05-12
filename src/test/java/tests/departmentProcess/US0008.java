@@ -1,20 +1,14 @@
 package tests.departmentProcess;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.DepartmentsPage;
 import pages.HomePage;
 import utilities.Driver;
-import utilities.TestBase;
-
-import java.util.List;
 
 public class US0008{
 
