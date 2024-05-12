@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.Company;
-import utilities.TestBase;
 
 import java.time.Duration;
 

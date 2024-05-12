@@ -11,6 +11,8 @@ public class US0020  {
 
     @Test
     public void TC03() throws InterruptedException {
+       // HomePage homePage = new HomePage();
+       // RolesAndPermissionsPage rolesAndPermissionsPage = new RolesAndPermissionsPage();
         homePage.permissionIconClick();
         rolesAndPermissionsPage.displayPermissions();
 
@@ -18,6 +20,8 @@ public class US0020  {
 
     @Test
     public void TC04() throws InterruptedException {
+        //HomePage homePage = new HomePage();
+        //RolesAndPermissionsPage rolesAndPermissionsPage = new RolesAndPermissionsPage();
         homePage.permissionIconClick();
         rolesAndPermissionsPage.verifyAllPermissionsPresent();
 

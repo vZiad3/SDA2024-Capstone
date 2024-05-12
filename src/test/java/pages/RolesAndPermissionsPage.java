@@ -87,6 +87,7 @@ public class RolesAndPermissionsPage {
             System.out.println(permission.getText());
         }
     }
+
     public void verifyAllPermissionsPresent() {
         Set<String> expectedPermissions = new HashSet<>();
         Set<String> actualPermissions = new HashSet<>();
