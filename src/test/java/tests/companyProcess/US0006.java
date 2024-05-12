@@ -8,7 +8,7 @@ import pages.Company;
 
 import java.time.Duration;
 
-public class US0006 extends TestBase {
+public class US0006  {
     Company company = new Company();
     By collField = By.xpath("//div[@id='divCollapseUncollapse']");
     By companyButtonField = By.xpath("//li[@class='list-group-item'][@id='link4']");

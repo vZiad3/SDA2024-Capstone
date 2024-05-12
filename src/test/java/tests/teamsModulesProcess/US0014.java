@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class US0014 extends TestBase {
+public class US0014  {
     @Test
     public void TC0014_01(){
         //User can edit the teams displayed in the Teams module.

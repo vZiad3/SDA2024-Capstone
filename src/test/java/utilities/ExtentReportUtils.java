@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ExtentReportUtils extends TestBase {
+public class ExtentReportUtils {
 
     protected static ExtentReports extentReports;
     protected static ExtentSparkReporter extentSparkReporter;

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class US0013 extends TestBase {
+public class US0013 {
 
 
     @Test
