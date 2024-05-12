@@ -1,48 +1,53 @@
 package tests.userModuleProcess;
-
-import com.sun.source.tree.AssertTree;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LogInPage;
 import pages.UserModuleProcess;
-import utilities.TestBase;
+import utilities.ReusableMethods;
 
-import java.util.ArrayList;
-import java.util.List;
+public class US00015  {
 
-public class US00015 extends TestBase {
+//    @BeforeSuite
+//    public void beforeTEst(){
+//
+//
+//
+//        logInPage.defaultLogin();
+//        moduleProcess.button.click();
+//        ReusableMethods.waitForClickablility(moduleProcess.button,2);
+//        moduleProcess.UserButton.click();
+//
+//
+//    }
+
+    LogInPage logInPage = new LogInPage();
+    UserModuleProcess moduleProcess = new UserModuleProcess();
 
     @Test
-    public void GetUserDeb(){
-
-       driver.findElement(By.xpath("//div[@id='divCollapseUncollapse']//*[name()='svg']")).click();
-       driver.findElement(By.xpath(" ")).click();
-    }
-
-    @Test
-    public void SeeTheNewlyUser(){
-
-
-
-
-//  List<WebElement> rows = driver.findElements(By.xpath("//table[@role='table']//tbody//tr"));
-//  List<WebElement> cells;
-//
-//  List<String> allData = new ArrayList<>();
-//
-//       for (WebElement w : rows) {
-//           cells = w.findElements(By.xpath(".//td"));
-//           for (WebElement y : cells)
-//               allData.add(y.getText());
-//       }
-//       System.out.println("allData = " + allData);
-//       AssertTree(allData,);
-//
-//     driver.findElement(By.xpath("//button[normalize-space()='+ Add New Member']"));
-
-
+    public void AsserTheUserExists() throws InterruptedException {
+        //With exists Email
+        logInPage.defaultLogin();
+        Thread.sleep(200);
+        moduleProcess.button.click();
+        ReusableMethods.waitForClickablility(moduleProcess.button,2);
+        moduleProcess.userButton.click();
+        moduleProcess.addNewButton.click();
+        Thread.sleep(500);
+        moduleProcess.firstToDropdown.click();
+        moduleProcess.scrollByThreeElements();
+        moduleProcess.firstToDropdown.click();
+        Thread.sleep(500);
+        moduleProcess.sacondToDropdown.click();
+        moduleProcess.scrollByThreeElements();
+        moduleProcess.emailInput.sendKeys("exatest@exatest.com");
+        Thread.sleep(200);
+        moduleProcess.registerButton.click();
+        Assert.assertTrue(moduleProcess.successMasseg.size() == 0);
+        moduleProcess.cancelButton.click();
 
     }
 
 }
+
+
+
