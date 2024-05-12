@@ -1,11 +1,13 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -63,13 +65,20 @@ public class UserProfileEditable {
         Assert.assertTrue(mes.size() > 0);
     }
     public void ErrorAssertForUser(){
+        // Find all elements matching the XPath
         List<WebElement> mes = Driver.getDriver().findElements(By.xpath("//div[@class='toast-body']"));
-        Assert.assertFalse(mes.size() > 0);
+
+        // Create a SoftAssert object
+        SoftAssert softAssert = new SoftAssert();
+
+        // Assert that the list is empty using soft assertion
+        softAssert.assertFalse(mes.size() > 0, "Toast message is displayed on the page");
+
+        // Call assertAll() at the end to verify all soft assertions
+        softAssert.assertAll();
     }
 
-    public void EmptyAssert(){
-       Assert.assertEquals(EmptyMessage.getText(),"Username cannot be empty");
-    }
+
     public void successAssert(){
         List<WebElement> mes = Driver.getDriver().findElements(By.xpath("//div[@class='toast-body']"));
         Assert.assertTrue(mes.size() > 0);
@@ -133,16 +142,19 @@ public class UserProfileEditable {
     public void setUsernameEmpty(){
         EditButton.click();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        UserNameField.clear();
+        UserNameField.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        UserNameField.sendKeys(Keys.DELETE);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        Assert.assertEquals(EmptyMessage.getText(),"Username cannot be empty");
+
         SaveButton.click();
 
     }
@@ -159,7 +171,5 @@ public class UserProfileEditable {
         UserNameField.sendKeys("user$name");
         SaveButton.click();
     }
-
-
 
 }

@@ -41,6 +41,16 @@ public class LogInPage {
 
     }
 
+    public void defaultLogin2(){
+        Driver.getDriver().get(ConfigReader.getProperty("website"));
+        loginButton.click();
+        usernameField.sendKeys(ConfigReader.getProperty("email4"));
+        passwordField.sendKeys(ConfigReader.getProperty("password4"));
+        singIn.click();
+
+
+    }
+
 
 
 
