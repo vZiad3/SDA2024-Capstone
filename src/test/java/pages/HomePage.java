@@ -27,6 +27,21 @@ public class HomePage {
         remoteUnitIcon.click();
     }
 
+    @FindBy(xpath = "//*[@class='list-group-item'][@id='link5']")
+    public WebElement DeptP;
+
+//-----------------------------------------------
+    //Department page
+//-----------------------------------------------
+    public void deptP()
+    {
+
+        log.defaultLogin();
+        //Click on "Departments" icon on the side menu.
+        DeptP.click();
+    }
+
+
     public void companyClick(){
        // log.defaultLogin();
         //Click on "Company" icon on the side menu.

@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -15,9 +16,16 @@ public class TestBase {
     protected static WebDriver driver;
 
 
-
     @BeforeSuite
-    public void beforeMethod(){
+    public void beforeMethod() {
+        driver = new ChromeDriver();
+        //driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
+    }
+
+    public void BeforeSuite() {
+
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -33,11 +41,16 @@ public class TestBase {
 
         // Enter a valid email address
         WebElement emailField = driver.findElement(By.id("username"));
-        emailField.sendKeys("cstm@qualitron.com");
+        emailField.sendKeys("cstm@testevolve.com");
 
         // Enter a valid password
         WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("-lLTYxayrK3ZWr8");
+        passwordField.sendKeys("TestPass123@");
+
+        // Enter a valid password
+        WebElement passwordField1 = driver.findElement(By.id("password"));
+        passwordField.sendKeys("CvdPixvARzUrmuR");
+
 
         // Click on the "SignIn" button
         WebElement SignIn = driver.findElement(By.xpath("//button[@type='submit']"));
@@ -45,12 +58,27 @@ public class TestBase {
 
     }
 
-            //@AfterMethod
-            //public void afterMethod(){
-            //    if(driver != null){
-            //        driver.quit();
-            //        driver = null;
-            //    }
-            //}
+    //@AfterMethod
+    //public void afterMethod(){
+    //    if(driver != null){
+    //        driver.quit();
+    //        driver = null;
+    //    }
+    //}
 
+  /*  @AfterMethod
+    public void afterMethod(){
+        if(driver != null){
+            driver.quit();
+            driver = null;
+        }
+    }
+*/
+    //@AfterMethod
+    //public void afterMethod(){
+    //    if(driver != null){
+    //        driver.quit();
+    //        driver = null;
+    //    }
+    //}
 }
