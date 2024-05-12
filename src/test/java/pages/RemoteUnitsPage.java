@@ -255,7 +255,6 @@ public class RemoteUnitsPage {
         // Click the "Confirm" button.
         confirmButton.click();
 
-
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -264,9 +263,6 @@ public class RemoteUnitsPage {
         //Verify delete remote unit.
         System.out.println(departmentH.getText());
         return departmentH.getText();
-
-
-
     }
 
     public void set(String namedePartment) {
