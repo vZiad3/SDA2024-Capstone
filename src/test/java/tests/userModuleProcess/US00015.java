@@ -7,18 +7,6 @@ import utilities.ReusableMethods;
 
 public class US00015  {
 
-//    @BeforeSuite
-//    public void beforeTEst(){
-//
-//
-//
-//        logInPage.defaultLogin();
-//        moduleProcess.button.click();
-//        ReusableMethods.waitForClickablility(moduleProcess.button,2);
-//        moduleProcess.UserButton.click();
-//
-//
-//    }
 
     LogInPage logInPage = new LogInPage();
     UserModuleProcess moduleProcess = new UserModuleProcess();
