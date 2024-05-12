@@ -16,6 +16,13 @@ public class TestBase {
 
 
     @BeforeSuite
+    public void beforeMethod() {
+        driver = new ChromeDriver();
+        //driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
+    }
+
 
     public void BeforeSuite() {
         {
@@ -40,11 +47,24 @@ public class TestBase {
             WebElement passwordField = driver.findElement(By.id("password"));
             passwordField.sendKeys("CvdPixvARzUrmuR");
 
-            // Click on the "SignIn" button
-            WebElement SignIn = driver.findElement(By.xpath("//button[@type='submit']"));
-            SignIn.click();
+        // Enter a valid password
+        WebElement passwordField1 = driver.findElement(By.id("password"));
+        passwordField.sendKeys("CvdPixvARzUrmuR");
 
-        }
+
+        // Click on the "SignIn" button
+        WebElement SignIn = driver.findElement(By.xpath("//button[@type='submit']"));
+        SignIn.click();
+
+    }
+
+    //@AfterMethod
+    //public void afterMethod(){
+    //    if(driver != null){
+    //        driver.quit();
+    //        driver = null;
+    //    }
+    //}
 
   /*  @AfterMethod
     public void afterMethod(){
@@ -54,7 +74,6 @@ public class TestBase {
         }
     }
 */
-    }
     //@AfterMethod
     //public void afterMethod(){
     //    if(driver != null){
@@ -62,5 +81,4 @@ public class TestBase {
     //        driver = null;
     //    }
     //}
-
 }
