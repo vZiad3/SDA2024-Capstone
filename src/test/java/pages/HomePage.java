@@ -10,7 +10,7 @@ public class HomePage {
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    LogInPage log = new LogInPage();
+    LogInPage1 log = new LogInPage1();
 
 
     @FindBy(id = "link6")

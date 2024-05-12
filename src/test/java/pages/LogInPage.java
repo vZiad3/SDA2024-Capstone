@@ -38,14 +38,6 @@ public class LogInPage {
         passwordField.sendKeys(ConfigReader.getProperty("password3"));
         singIn.click();
 
-
     }
-
-
-
-
-
-
-
 
 }
