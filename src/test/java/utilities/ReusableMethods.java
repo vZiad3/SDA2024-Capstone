@@ -1,6 +1,5 @@
 package utilities;
 
-
 import org.codehaus.plexus.util.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
