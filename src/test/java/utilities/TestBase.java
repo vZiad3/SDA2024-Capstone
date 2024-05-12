@@ -15,42 +15,52 @@ public class TestBase {
     protected static WebDriver driver;
 
 
-
     @BeforeSuite
-    public void beforeMethod(){
-        driver = new ChromeDriver();
-        //driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.manage().window().maximize();
 
-        //Go to URL: https://qa-gm3.quaspareparts.com/
-        driver.get("https://qa-gm3.quaspareparts.com/");
+    public void BeforeSuite() {
+        {
+            driver = new ChromeDriver();
+            //driver = new FirefoxDriver();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+            driver.manage().window().maximize();
 
-        // Find the login button element using the XPath expression
-        WebElement loginButton = driver.findElement(By.xpath("//html/body/div/a"));
-        // Click on the login button
-        loginButton.click();
+            //Go to URL: https://qa-gm3.quaspareparts.com/
+            driver.get("https://qa-gm3.quaspareparts.com/");
 
-        // Enter a valid email address
-        WebElement emailField = driver.findElement(By.id("username"));
-        emailField.sendKeys("cstm@qualitron.com");
+            // Find the login button element using the XPath expression
+            WebElement loginButton = driver.findElement(By.xpath("//html/body/div/a"));
+            // Click on the login button
+            loginButton.click();
 
-        // Enter a valid password
-        WebElement passwordField = driver.findElement(By.id("password"));
-        passwordField.sendKeys("-lLTYxayrK3ZWr8");
+            // Enter a valid email address
+            WebElement emailField = driver.findElement(By.id("username"));
+            emailField.sendKeys("cstm@testevolve.com");
 
-        // Click on the "SignIn" button
-        WebElement SignIn = driver.findElement(By.xpath("//button[@type='submit']"));
-        SignIn.click();
+            // Enter a valid password
+            WebElement passwordField = driver.findElement(By.id("password"));
+            passwordField.sendKeys("CvdPixvARzUrmuR");
 
+            // Click on the "SignIn" button
+            WebElement SignIn = driver.findElement(By.xpath("//button[@type='submit']"));
+            SignIn.click();
+
+        }
+
+  /*  @AfterMethod
+    public void afterMethod(){
+        if(driver != null){
+            driver.quit();
+            driver = null;
+        }
     }
-
-            //@AfterMethod
-            //public void afterMethod(){
-            //    if(driver != null){
-            //        driver.quit();
-            //        driver = null;
-            //    }
-            //}
+*/
+    }
+    //@AfterMethod
+    //public void afterMethod(){
+    //    if(driver != null){
+    //        driver.quit();
+    //        driver = null;
+    //    }
+    //}
 
 }
