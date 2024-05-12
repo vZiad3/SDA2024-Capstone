@@ -4,63 +4,80 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.DepartmentsPage;
+import pages.HomePage;
+import utilities.Driver;
 import utilities.TestBase;
 
-public class US0008 extends TestBase {
+import java.util.List;
+
+public class US0008{
 
 
-    @BeforeTest
-    public void Dept(){
+    HomePage homePage;
+    DepartmentsPage departmentsPage;
 
+    @BeforeMethod
+    public void setUp(){
 
-        WebElement Coll = driver.findElement(By.xpath("//div[@id='divCollapseUncollapse']"));
+        homePage = new HomePage();
+        departmentsPage = new DepartmentsPage();
 
-        Coll.click();
+    }
 
-        WebElement DeptP = driver.findElement(By.xpath("(//a[normalize-space()='Departments'])[1]"));
+    @AfterMethod
+    public void tearDown(){
 
-        DeptP.click();
-
+        Driver.tearDown();
 
     }
 
     @Test
     public void TC000801(){
 
+        homePage.deptP();
+        departmentsPage.AddB.click();
 
-        //to locate the add new dept button
-        WebElement AddB = driver.findElement(By.xpath("//button[text()=' Add New ']"));
-        //to click add new dept button
-        AddB.click();
+        departmentsPage.DeptName.sendKeys("This is for 000801");
 
+        departmentsPage.CHdeptType.click();
+        Actions act = new Actions(Driver.getDriver());
+        act.sendKeys(Keys.ENTER).perform();
 
-        //to locate the name text box
-        WebElement DeptName = driver.findElement(By.id("name"));
-        //to type in the dept text box
-        DeptName.sendKeys("This is for 000801");
+        departmentsPage.SaveButton.click();
 
-        WebElement departmentType = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[2]/div[3]/div/div"));
-        departmentType.click();
+        Assert.assertTrue(departmentsPage.SucAlert.size() > 0);
 
-        Actions actions = new Actions(driver);
+    }
 
-        // Simulate pressing the down arrow key twice to navigate down in the dropdown
-        actions.sendKeys(Keys.ENTER).perform();
+    @Test
+    public void TC000803(){
 
 
+        homePage.deptP();
+
+//        //to locate the add new dept button
+//        //to click add new dept button
+        departmentsPage.AddNewDept.click();
 
 
-        // css-19bb58m
+//        //to locate the name text box
+//        //to type in the dept text box
+        departmentsPage.DeptName.sendKeys("This is for 000802 Shouldnt be created");
 
-        //to click add new dept button
+//        //to find the save button
+//        //to click add new dept button
+        departmentsPage.SaveButton.click();
 
 
-
-        //DeptType.click();
-
-
+//        // to find the alert by text and put it in a list for asserting by size
+//        //To assert "New department successfully created"
+        Assert.assertTrue(departmentsPage.Typealert.isDisplayed());
 
     }
 }

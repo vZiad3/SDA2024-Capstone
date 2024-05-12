@@ -4,25 +4,31 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+import pages.DepartmentsPage;
+import pages.HomePage;
+import pages.RemoteUnitsPage;
+import utilities.Driver;
 import utilities.TestBase;
 
-public class US0007 extends TestBase {
+public class US0007 {
 
 
-    @BeforeTest
-        public void Dept(){
+    HomePage homePage;
+    DepartmentsPage departmentsPage;
 
+    @BeforeMethod
+    public void setUp(){
 
-        WebElement Coll = driver.findElement(By.xpath("//div[@id='divCollapseUncollapse']"));
+        homePage = new HomePage();
+        departmentsPage = new DepartmentsPage();
 
-        Coll.click();
+    }
 
-        WebElement DeptP = driver.findElement(By.xpath("(//a[normalize-space()='Departments'])[1]"));
+    @AfterMethod
+    public void tearDown(){
 
-        DeptP.click();
-
+        Driver.tearDown();
 
     }
 
@@ -30,10 +36,13 @@ public class US0007 extends TestBase {
     @Test
     public void TC000701(){
 
+//        homePage = new HomePage();
+//        departmentsPage = new DepartmentsPage();
 
-        WebElement DeptCard = driver.findElement(By.xpath("//*[@class=\"card-body p-3\"]"));
 
-        Assert.assertTrue(DeptCard.isDisplayed());
+        homePage.deptP();
+        Assert.assertTrue(departmentsPage.DeptCard.isDisplayed());
+
 
         }
 
@@ -42,31 +51,29 @@ public class US0007 extends TestBase {
     public void TC000702(){
 
 
-        //WebElement DeptCardC = driver.findElement(By.xpath("//*[@href=\"#/department/1/366\"]"));
-        WebElement DeptCardC = driver.findElement(By.linkText("DoNotDelete"));
 
-        DeptCardC.click();
+        homePage.deptP();
+        departmentsPage.DeptCardC.click();
+        Assert.assertTrue(departmentsPage.AuthRoles.isDisplayed());
 
-        WebElement AuthRoles = driver.findElement(By.xpath("//span[@class='roles-box p-2 me-2']"));
-
-        Assert.assertTrue(AuthRoles.isDisplayed());
+//        Driver.tearDown();
 
     }
 
 
 
     @Test
-    public void TC000703() throws InterruptedException {
+    public void TC000703(){
 
-        WebElement EPbtn = driver.findElement(By.xpath("//button[normalize-space()='Edit Department']"));
+//        homePage = new HomePage();
+//        departmentsPage = new DepartmentsPage();
 
-        EPbtn.click();
+        homePage.deptP();
+        departmentsPage.DeptCardC.click();
+        departmentsPage.EPbtn.click();
+        Driver.getDriver().navigate().refresh();
 
-        driver.navigate().refresh();
-
-
-
-
+//        Driver.tearDown();
     }
 
 
