@@ -12,23 +12,24 @@ public class US00015  {
     UserModuleProcess moduleProcess = new UserModuleProcess();
 
     @Test
-    public void AsserTheUserExists() throws InterruptedException {
+    public void AsserTheUserExists()  {
         //With exists Email
         logInPage.defaultLogin();
-        Thread.sleep(200);
+        ReusableMethods.waitFor(5);
         moduleProcess.button.click();
         ReusableMethods.waitForClickablility(moduleProcess.button,2);
         moduleProcess.userButton.click();
         moduleProcess.addNewButton.click();
-        Thread.sleep(500);
+        ReusableMethods.waitFor(3);
         moduleProcess.firstToDropdown.click();
         moduleProcess.scrollByThreeElements();
         moduleProcess.firstToDropdown.click();
-        Thread.sleep(500);
+        ReusableMethods.waitFor(5);
         moduleProcess.sacondToDropdown.click();
+        ReusableMethods.waitFor(3);
         moduleProcess.scrollByThreeElements();
         moduleProcess.emailInput.sendKeys("exatest@exatest.com");
-        Thread.sleep(200);
+        ReusableMethods.waitFor(3);
         moduleProcess.registerButton.click();
         Assert.assertTrue(moduleProcess.successMasseg.size() == 0);
         moduleProcess.cancelButton.click();
