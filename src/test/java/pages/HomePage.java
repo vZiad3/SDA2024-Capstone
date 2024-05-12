@@ -41,4 +41,18 @@ public class HomePage {
         permissionIcon.click();
     }
 
+    @FindBy(xpath = "//*[@class='list-group-item'][@id='link5']")
+    public WebElement DeptP;
+
+//-----------------------------------------------
+    //Department page
+//-----------------------------------------------
+    public void deptP()
+    {
+
+        log.defaultLogin();
+        //Click on "Departments" icon on the side menu.
+        DeptP.click();
+    }
+
 }
