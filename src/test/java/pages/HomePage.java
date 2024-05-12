@@ -21,6 +21,10 @@ public class HomePage {
     @FindBy(id = "link10")
     private WebElement permissionIcon;
 
+    @FindBy(xpath = "//li[@class='list-group-item'][@id='link4']")
+
+    public WebElement companyButton;
+
     public void remoteUnitClick()
     {
         log.defaultLogin();
@@ -53,6 +57,13 @@ public class HomePage {
         log.defaultLogin();
         //Click on "Departments" icon on the side menu.
         DeptP.click();
+    }
+
+
+    public void companyClick(){
+       // log.defaultLogin();
+        //Click on "Company" icon on the side menu.
+        companyButton.click();
     }
 
 }
