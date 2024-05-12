@@ -6,14 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.TestBase;
 
 import java.util.List;
 
-public class US0013 {
+
+
+public class US0013 extends TestBase {
 
 
     @Test
-    public void TC0013_01(){
+    public void TC0013_01() {
         // User should be able to view and click on teams
         // Navigate to the Teams module.
         // Observe the list of teams displayed.
@@ -53,7 +56,6 @@ public class US0013 {
 
         WebElement SaveButton = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[5]/div/span/div/button[1]"));
         SaveButton.click();
-
 
 
         // to find the alert by text and put it in a list for asserting by size
@@ -99,7 +101,7 @@ public class US0013 {
     }
 
     @Test
-    public void TC0013_04(){
+    public void TC0013_04() {
         // User cannot add a team without a type
         // Steps
         // Navigate to the Teams module
@@ -126,3 +128,4 @@ public class US0013 {
 
     }
 }
+

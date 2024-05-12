@@ -6,10 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.TestBase;
 
 import java.util.List;
 
-public class US0014  {
+public class US0014 extends TestBase  {
     @Test
     public void TC0014_01(){
         //User can edit the teams displayed in the Teams module.

@@ -6,13 +6,14 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import utilities.TestBase;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ExtentReportUtils {
+public class ExtentReportUtils extends TestBase {
 
     protected static ExtentReports extentReports;
     protected static ExtentSparkReporter extentSparkReporter;
@@ -119,6 +120,5 @@ public class ExtentReportUtils {
         // 4. Return the image path as a String
         return path;
     }
-
 
 }

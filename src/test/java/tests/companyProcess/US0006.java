@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.Company;
+import utilities.TestBase;
 
 import java.time.Duration;
 
-public class US0006  {
+public class US0006 extends TestBase {
     Company company = new Company();
     By collField = By.xpath("//div[@id='divCollapseUncollapse']");
     By companyButtonField = By.xpath("//li[@class='list-group-item'][@id='link4']");
