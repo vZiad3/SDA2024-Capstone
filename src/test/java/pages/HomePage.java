@@ -8,6 +8,7 @@ import utilities.ReusableMethods;
 
 public class HomePage {
 
+
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
@@ -40,10 +41,6 @@ public WebElement slider;
 
 
 
-    public void remoteUnitClick()
-    {
-        log.defaultLogin();
-
     public void remoteUnitClick() {
            log = new LogInPage();
            log.defaultLogin();
@@ -57,8 +54,7 @@ public WebElement slider;
         remoteUnitIcon.click();
 
     }
-    public void roleClick()
-    {
+    public void roleClick() {
         log.defaultLogin();
         //Click on "Remote Units" icon on the side menu.
         rolesicon.click();
@@ -96,8 +92,7 @@ public WebElement slider;
         companyButton.click();
     }
 
-    public void mempershipclick()
-    {
+    public void mempershipclick() {
         log.defaultLogin();
         //Click on "Mepership" icon on the side menu.
         mempership.click();
@@ -110,14 +105,7 @@ public WebElement slider;
     }
 
 
-
-
-}
-
-
-
-    public void teammp()
-    {
+    public void teammp() {
 
         log.defaultLogin();
         //Click on "Departments" icon on the side menu.

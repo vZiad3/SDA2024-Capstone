@@ -59,7 +59,5 @@ public class US0014 {
         TeamModulesProcess teamsModulePage = new TeamModulesProcess();
         teamsModulePage.deleteTeam();
 
-
-
     }
 }
