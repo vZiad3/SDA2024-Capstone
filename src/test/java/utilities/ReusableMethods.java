@@ -1,5 +1,6 @@
 package utilities;
 
+import org.codehaus.plexus.util.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -18,22 +19,20 @@ import java.util.function.Function;
 
 public class ReusableMethods {
     protected static WebDriver driver;
-
+    public static String takeScreenshot(String fileName) throws IOException {
         // TakesScreenshot is an interface of selenium that takes the screenshot
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
-
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
-
         // full path to the screenshot location
         // String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + fileName + ".png";  -> for mac
         String target = ".\\test-output\\Screenshots\\" + fileName + date + ".png";
         File finalDestination = new File(target);
-
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
         return target;
+    }
 
     //========Switching Window=====//
     public static void switchToWindow(String targetTitle) {
@@ -149,5 +148,5 @@ public class ReusableMethods {
         });
 
         return element;
-    }
+    }}
 
