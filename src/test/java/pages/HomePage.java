@@ -28,6 +28,8 @@ public class HomePage {
 
 
 
+
+
     public void remoteUnitClick()
     {
         log.defaultLogin();
@@ -41,6 +43,7 @@ public class HomePage {
 
     @FindBy(xpath = "//*[@id='Header']/div/div/div/button")
     public WebElement slider;
+
 
 
     public void remoteUnitClick() {
@@ -59,10 +62,14 @@ public class HomePage {
 
     public void roleClick() {
 
+
+    public void roleClick() {
+
     public void roleClick()
     {
 
     public void roleClick() {
+
 
         log.defaultLogin();
         //Click on "Remote Units" icon on the side menu.
@@ -114,9 +121,14 @@ public class HomePage {
         slider.click();
     }
 
+=======
 
     public void teammp() {
 
+
+    public void teammp() {
+
+        log= new LogInPage();
         log.defaultLogin();
         //Click on "Departments" icon on the side menu.
         TeammP.click();
@@ -124,3 +136,27 @@ public class HomePage {
 
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+
+};
+

@@ -16,7 +16,7 @@ public class US0014 {
     HomePage homePage;
     TeamModulesProcess teamModulesProcess;
 
-    @BeforeMethod
+   /* @BeforeMethod
     public void setUp(){
 
         homePage = new HomePage();
@@ -29,9 +29,11 @@ public class US0014 {
 
         Driver.tearDown();
 
-    }
+    }*/
     @Test
     public void TC0014_01() throws InterruptedException {
+        homePage = new HomePage();
+        teamModulesProcess = new TeamModulesProcess();
         //User can edit the teams displayed in the Teams module.
         //Steps
         //Navigate to the Teams module
@@ -41,9 +43,8 @@ public class US0014 {
         //Save changes
 
         homePage.teammp();
-        TeamModulesProcess teamsModulePage = new TeamModulesProcess();
-        teamsModulePage.ValidEdit();
-        teamsModulePage.SuccessEdit();
+        teamModulesProcess.ValidEdit();
+        teamModulesProcess.SuccessEdit();
 
 
     }
