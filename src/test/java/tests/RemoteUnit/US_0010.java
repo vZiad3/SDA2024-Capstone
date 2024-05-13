@@ -51,11 +51,4 @@ public class US_0010 {
         homePage.remoteUnitClick();
     }
 
-
-
-
-
-
-
-
 }

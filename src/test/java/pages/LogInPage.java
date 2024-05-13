@@ -34,10 +34,14 @@ public class LogInPage {
     public void defaultLogin(){
         Driver.getDriver().get(ConfigReader.getProperty("website"));
         loginButton.click();
-        usernameField.sendKeys(ConfigReader.getProperty("email3"));
-        passwordField.sendKeys(ConfigReader.getProperty("password3"));
+        usernameField.sendKeys(ConfigReader.getProperty("email4"));
+        passwordField.sendKeys(ConfigReader.getProperty("password4"));
         singIn.click();
 
+    }
+    public void enterLogin(){
+        Driver.getDriver().get(ConfigReader.getProperty("website"));
+        loginButton.click();
     }
 
 }
