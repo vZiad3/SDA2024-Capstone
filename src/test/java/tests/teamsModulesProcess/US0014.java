@@ -1,19 +1,36 @@
 package tests.teamsModulesProcess;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utilities.TestBase;
+import pages.HomePage;
+import pages.TeamModulesProcess;
+import utilities.Driver;
+
 
 import java.util.List;
-import java.util.Set;
 
-public class US0014 extends TestBase {
+public class US0014 {
+
+    HomePage homePage;
+    TeamModulesProcess teamModulesProcess;
+
+    @BeforeMethod
+    public void setUp(){
+
+        homePage = new HomePage();
+        teamModulesProcess = new TeamModulesProcess();
+
+    }
+
+    @AfterMethod
+    public void tearDown(){
+
+        Driver.tearDown();
+
+    }
     @Test
-    public void TC0014_01(){
+    public void TC0014_01() throws InterruptedException {
         //User can edit the teams displayed in the Teams module.
         //Steps
         //Navigate to the Teams module
@@ -22,38 +39,10 @@ public class US0014 extends TestBase {
         //Modify the Department name and Department type fields as needed.
         //Save changes
 
-        WebElement teamButton = driver.findElement(By.id("link7"));
-        teamButton.click();
-
-        WebElement team = driver.findElement(By.xpath("//*[@id='MainContent']/div/div[3]/div/div[1]/div/div/p/div[1]/div[2]/a"));
-        team.click();
-
-        WebElement editBtn = driver.findElement(By.xpath("//*[@id='MainContent']/div[1]/div/a/button"));
-        editBtn.click();
-
-        WebElement teamNameField = driver.findElement(By.id("name"));
-        teamNameField.sendKeys(Keys.CLEAR);
-        teamNameField.sendKeys("EditTest");
-
-        WebElement departmentType = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[2]/div[3]/div/div"));
-        departmentType.click();
-
-        Actions actions = new Actions(driver);
-
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-
-        actions.sendKeys(Keys.ENTER).perform();
-
-        WebElement SaveButton = driver.findElement(By.xpath("//*[@id='MainContent']/div/div/div/div/div[2]/div[5]/div/span/div/button[1]"));
-        SaveButton.click();
-
-
-        // to find the alert by text and put it in a list for asserting by size
-        List<WebElement> Alert = driver.findElements(By.xpath("//*[text()='Changes successfully saved']"));
-        //To assert "Changes successfully saved"
-        Assert.assertTrue(Alert.size() > 0);
-
-
+        homePage.teammp();
+        TeamModulesProcess teamsModulePage = new TeamModulesProcess();
+        teamsModulePage.ValidEdit();
+        teamsModulePage.SuccessEdit();
 
 
     }
@@ -66,22 +55,9 @@ public class US0014 extends TestBase {
         //click on the "delete department" button
         //Confirm the deletion
 
-        WebElement teamButton = driver.findElement(By.id("link7"));
-        teamButton.click();
-
-        WebElement team = driver.findElement(By.xpath("//*[@id='MainContent']/div/div[3]/div/div[1]/div/div/p/div[1]/div[2]/a"));
-        team.click();
-
-
-        WebElement editBtn = driver.findElement(By.xpath("//*[@id='MainContent']/div[1]/div/a/button"));
-        editBtn.click();
-
-        WebElement deleteBtn = driver.findElement(By.xpath("//*[@id='MainContent']/div/div[2]/div/button"));
-        deleteBtn.click();
-
-
-        WebElement confirmButton = driver.findElement(By.xpath("//button[.='Confirm']"));
-        confirmButton.click();
+        homePage.teammp();
+        TeamModulesProcess teamsModulePage = new TeamModulesProcess();
+        teamsModulePage.deleteTeam();
 
 
 
