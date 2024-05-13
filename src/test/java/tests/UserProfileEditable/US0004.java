@@ -1,18 +1,9 @@
 package tests.UserProfileEditable;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.HomePage;
 import pages.LogInPage;
 import pages.UserProfileEditable;
 import utilities.Driver;
-import utilities.TestBase;
-
-import java.util.List;
 
 
 public class US0004 {

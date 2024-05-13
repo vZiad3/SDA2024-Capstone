@@ -34,16 +34,6 @@ public class LogInPage {
     public void defaultLogin(){
         Driver.getDriver().get(ConfigReader.getProperty("website"));
         loginButton.click();
-        usernameField.sendKeys(ConfigReader.getProperty("email3"));
-        passwordField.sendKeys(ConfigReader.getProperty("password3"));
-        singIn.click();
-
-
-    }
-
-    public void defaultLogin2(){
-        Driver.getDriver().get(ConfigReader.getProperty("website"));
-        loginButton.click();
         usernameField.sendKeys(ConfigReader.getProperty("email4"));
         passwordField.sendKeys(ConfigReader.getProperty("password4"));
         singIn.click();
@@ -52,10 +42,14 @@ public class LogInPage {
     }
 
 
+    public void defaultLogin2(){
+        Driver.getDriver().get(ConfigReader.getProperty("website"));
+        loginButton.click();
+        usernameField.sendKeys(ConfigReader.getProperty("email5"));
+        passwordField.sendKeys(ConfigReader.getProperty("password5"));
+        singIn.click();
 
 
-
-
-
+    }
 
 }
