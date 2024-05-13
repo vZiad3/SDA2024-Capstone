@@ -1,12 +1,11 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AccessAccountManagement {
+public class AccessAccountManagementPage {
     private WebDriver driver;
 
     //US0001
@@ -34,6 +33,17 @@ public class AccessAccountManagement {
     @FindBy(id = "Sidebar")
     private WebElement sidebarElement;
 
+    //WebElement homeElement = driver.findElement(By.xpath("//h4[normalize-space()='My Profile']"));
+
+//    @FindBy(xpath = "//h4[normalize-space()='My Profile']")
+//    private WebElement homeElement;
+    @FindBy(xpath = "//a[normalize-space()='Home']")
+    private WebElement homeElement;
+
+    public boolean ishomeElementDisplayed() {
+        return homeElement.isDisplayed();
+    }
+
     //------------------------US0002------------------
 
     public boolean isLogoDisplayed() {
@@ -47,13 +57,15 @@ public class AccessAccountManagement {
 
     // ------------------------------------------
     //US0003
-    @FindBy(xpath = "//span[contains(text(),'cstm@testevolve.com')]")
+    @FindBy(xpath = "//div[@id = 'Header']//table/tbody/tr[1]/td[2]")
     private WebElement dropdownMenu;
 
     @FindBy(xpath = "//ul[@role='menu']")
     private WebElement expandedDropdown;
 
-    @FindBy(xpath = "//span[contains(text(),'cstm@testevolve.com')]")
+//    @FindBy(xpath = "//span[contains(text(),'cstm@testevolve.com')]")
+//    private WebElement usernameAndRoleElement;
+    @FindBy(xpath = "//div[@id = 'Header']//table/tbody/tr[1]/td[2]")
     private WebElement usernameAndRoleElement;
 
     //------------------------US0003------------------
@@ -71,7 +83,7 @@ public class AccessAccountManagement {
 
 
 
-    public AccessAccountManagement(WebDriver driver) {
+    public AccessAccountManagementPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -121,14 +133,23 @@ public class AccessAccountManagement {
     public void clickMySubscriptionsOption() {
         mySubscriptionsOption.click();
     }
+    public boolean isMySubscriptionsOptionDisplayed() { return mySubscriptionsOption.isDisplayed();
+    }
 
     public void clickMyMembershipsOption() {
         myMembershipsOption.click();
+    }
+    public boolean isMyMembershipsOptionDisplayed() {
+        return myMembershipsOption.isDisplayed();
     }
 
     public void clickLogoutOption() {
         logoutOption.click();
     }
+    public boolean isLogoutOptionDisplay() {
+        return logoutOption.isDisplayed();
+    }
+
 
     public String getCurrentUrl() {
         return driver.getCurrentUrl();

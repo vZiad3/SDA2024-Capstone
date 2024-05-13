@@ -1,22 +1,20 @@
-package tests.loginPage;
+package tests.AccessAccountManagement;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AccessAccountManagement;
+import pages.AccessAccountManagementPage;
 import pages.LogInPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
-import utilities.TestBase;
 
 public class US0002  {
 
-    LogInPage logeIn = new LogInPage();
+    LogInPage logeIn ;
     @Test
     public void TC01()  {
-        AccessAccountManagement accountManagementPage = new AccessAccountManagement(Driver.getDriver());
+        logeIn = new LogInPage();
+        AccessAccountManagementPage accountManagementPage = new AccessAccountManagementPage(Driver.getDriver());
         PageFactory.initElements(Driver.getDriver(), accountManagementPage);
         logeIn.defaultLogin();
 
@@ -29,10 +27,12 @@ public class US0002  {
 
         // Verify that the logo is visible on the home page using @FindBy
         Assert.assertTrue(accountManagementPage.isLogoDisplayed());
+        Driver.tearDown();
     }
     @Test
     public void TC02() {
-        AccessAccountManagement accountManagementPage = new AccessAccountManagement(Driver.getDriver());
+        logeIn = new LogInPage();
+        AccessAccountManagementPage accountManagementPage = new AccessAccountManagementPage(Driver.getDriver());
         PageFactory.initElements(Driver.getDriver(), accountManagementPage);
         logeIn.defaultLogin();
 
@@ -44,6 +44,7 @@ public class US0002  {
 
         // Verify that the sidebar is visible on the home page
         Assert.assertTrue(accountManagementPage.isSidebarDisplayed());
+        Driver.tearDown();
 
 
     }
