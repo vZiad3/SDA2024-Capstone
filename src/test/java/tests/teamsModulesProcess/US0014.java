@@ -3,15 +3,13 @@ package tests.teamsModulesProcess;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-<<<<<<< HEAD
-=======
 import pages.HomePage;
 import pages.TeamModulesProcess;
 import utilities.Driver;
 
->>>>>>> b23687b515ce3e1e386f7c8f1e47f3a415eff62e
 
 import java.util.List;
+
 
 public class US0014 {
 
