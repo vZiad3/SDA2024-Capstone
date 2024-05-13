@@ -24,9 +24,13 @@ public class HomePage {
     private WebElement permissionIcon;
 
     @FindBy(xpath = "//li[@class='list-group-item'][@id='link4']")
-
     public WebElement companyButton;
 
+
+
+    public void remoteUnitClick()
+    {
+        log.defaultLogin();
 
     @FindBy(id = "link2")
     public  WebElement mempership ;
@@ -37,8 +41,6 @@ public class HomePage {
 
     @FindBy(xpath = "//*[@id='Header']/div/div/div/button")
     public WebElement slider;
-
-
 
 
     public void remoteUnitClick() {
@@ -54,7 +56,14 @@ public class HomePage {
         remoteUnitIcon.click();
 
     }
+
     public void roleClick() {
+
+    public void roleClick()
+    {
+
+    public void roleClick() {
+
         log.defaultLogin();
         //Click on "Remote Units" icon on the side menu.
         rolesicon.click();
@@ -63,6 +72,7 @@ public class HomePage {
     public void permissionIconClick()
     {
         log.defaultLogin();
+
         //Click on "Remote Units" icon on the side menu.
         permissionIcon.click();
     }
@@ -111,5 +121,6 @@ public class HomePage {
         //Click on "Departments" icon on the side menu.
         TeammP.click();
     }
+
 
 };
