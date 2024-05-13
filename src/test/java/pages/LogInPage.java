@@ -38,7 +38,10 @@ public class LogInPage {
         passwordField.sendKeys(ConfigReader.getProperty("password4"));
         singIn.click();
 
-
+    }
+    public void enterLogin(){
+        Driver.getDriver().get(ConfigReader.getProperty("website"));
+        loginButton.click();
     }
 
 
