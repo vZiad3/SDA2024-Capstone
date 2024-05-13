@@ -39,5 +39,9 @@ public class LogInPage {
         singIn.click();
 
     }
+    public void enterLogin(){
+        Driver.getDriver().get(ConfigReader.getProperty("website"));
+        loginButton.click();
+    }
 
 }
