@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.io.*;
 import java.util.List;
@@ -27,7 +28,7 @@ public class RemoteUnitsPage {
 
     Faker faker = new Faker();
     String[][] departmentName = {{"Sales","Sa"}, {"Marketing","M"}, {"Human Resources","HR"}
-            ,{"Finance","F"}, {"Engineering","E"}, {"Customer Service","CS"}, {" Quality assurance","QA"}};
+            ,{"Finance","F"}, {"Engineering","E"}, {"Customer Service","CS"}, {"","QA"}};
 
     // Generate a random index
     Random random = new Random();
@@ -80,15 +81,12 @@ public class RemoteUnitsPage {
     public Boolean remoteUnitDisplayed() {
 
         return remoteUnitDiv.get(0).isDisplayed();
-    }
 
+    }
     public int remoteUnitCount() {
 
-        System.out.println("remoteUnitDiv.size()= "+remoteUnitDiv.size());
-        System.out.println("remoteUnitDiv.size()= "+remoteUnitDiv.get(remoteUnitDiv.size()-1).getText());
-        return remoteUnitDiv.size();
+       return remoteUnitDiv.size();
     }
-
 
     public Boolean addRemoteUnit()  {
         //home page
@@ -121,7 +119,7 @@ public class RemoteUnitsPage {
             throw new RuntimeException(e);
         }
 
-   return Driver.getDriver().getPageSource().contains("New department successfully created");
+        return Driver.getDriver().getPageSource().contains("New department successfully created");
 
     }
 
@@ -143,8 +141,6 @@ public class RemoteUnitsPage {
         nameField.sendKeys(departmentName[index][0]);
         //Click the "Save" button.
         saveRemoteUnitButton.click();
-        System.out.println(errorMessage.getText() + " test 888");
-
         return errorMessage.getText();
 
 
@@ -242,7 +238,6 @@ public class RemoteUnitsPage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
         //Click the "Delete Department" button.
         deleteRemoteUnitButton.click();
 
@@ -254,9 +249,8 @@ public class RemoteUnitsPage {
 
         // Click the "Confirm" button.
         confirmButton.click();
-
         try {
-            Thread.sleep(1000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

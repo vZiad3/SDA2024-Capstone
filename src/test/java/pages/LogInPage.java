@@ -40,16 +40,4 @@ public class LogInPage {
 
     }
 
-    public void enterLogin(){
-        Driver.getDriver().get(ConfigReader.getProperty("website"));
-        loginButton.click();
-    }
-
-
-
-
-
-
-
-
 }

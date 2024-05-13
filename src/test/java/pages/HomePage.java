@@ -12,7 +12,6 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
     LogInPage log;
-    ReusableMethods reusableMethods = new ReusableMethods();
 
 
     @FindBy(id = "link6")
@@ -22,7 +21,7 @@ public class HomePage {
            log = new LogInPage();
            log.defaultLogin();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -30,19 +29,5 @@ public class HomePage {
         remoteUnitIcon.click();
 
     }
-
-    public void EnterRemoteUnitClick() {
-        log = new LogInPage();
-        log.enterLogin();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        //Click on "Remote Units" icon on the side menu.
-        remoteUnitIcon.click();
-
-    }
-
 
 }
