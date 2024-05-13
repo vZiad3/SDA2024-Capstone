@@ -21,6 +21,9 @@ public class US_0010 {
         //Click on "Remote Units" icon on the side menu.
         homePage.remoteUnitClick();
         //Verify that the Remote Units page is displayed.
+        Assert.assertTrue(remoteUnitsPage.remoteUnitDisplayed());
+
+        Driver.tearDown();
        Assert.assertTrue(remoteUnitsPage.remoteUnitDisplayed());
        Driver.tearDown();
 
