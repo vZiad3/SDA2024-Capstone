@@ -25,7 +25,4 @@ public class ConfigReader {
         return properties.getProperty(key);
     }
 
-    public static void setProperties(Properties properties) {
-        ConfigReader.properties = properties;
-    }
 }

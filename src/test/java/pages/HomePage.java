@@ -12,7 +12,6 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
     LogInPage log;
-    ReusableMethods reusableMethods = new ReusableMethods();
 
 
     @FindBy(id = "link6")
@@ -27,7 +26,7 @@ public class HomePage {
 
     public WebElement companyButton;
 
-<<<<<<< HEAD
+
     @FindBy(id = "link2")
     public  WebElement mempership ;
 
@@ -44,16 +43,16 @@ public WebElement slider;
     public void remoteUnitClick()
     {
         log.defaultLogin();
-=======
+
     public void remoteUnitClick() {
            log = new LogInPage();
            log.defaultLogin();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
->>>>>>> 6763d5b7ec4750f844cfa3c62d21cb5d24059abe
+
         //Click on "Remote Units" icon on the side menu.
         remoteUnitIcon.click();
 
@@ -97,7 +96,6 @@ public WebElement slider;
         companyButton.click();
     }
 
-<<<<<<< HEAD
     public void mempershipclick()
     {
         log.defaultLogin();
@@ -115,7 +113,8 @@ public WebElement slider;
 
 
 }
-=======
+
+
 
     public void teammp()
     {
@@ -126,4 +125,3 @@ public WebElement slider;
     }
 
 }
->>>>>>> 6763d5b7ec4750f844cfa3c62d21cb5d24059abe
