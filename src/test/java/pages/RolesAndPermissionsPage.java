@@ -30,6 +30,7 @@ public class RolesAndPermissionsPage {
     }
 
     public List<WebElement> getRoleElements() {
+
         return roleElements;
     }
 
@@ -80,10 +81,10 @@ public class RolesAndPermissionsPage {
 
 
     public void displayPermissions() {
-        Assert.assertFalse(permissionElements.isEmpty(), "No permissions found.");
+        Assert.assertFalse(permissionButtons.isEmpty(), "No permissions found.");
 
-        System.out.println("All Permissions displayed:");
-        for (WebElement permission : permissionElements) {
+        System.out.println("All Permissions displayed");
+        for (WebElement permission : permissionButtons) {
             System.out.println(permission.getText());
         }
     }
@@ -95,16 +96,19 @@ public class RolesAndPermissionsPage {
         // Print permissions on the page
         System.out.println("List of All Permissions:");
 
+        int count = 0;
+
         for (WebElement button : permissionButtons) {
             String buttonText = button.getText();
             if (!buttonText.isEmpty()) {
+                count++;
                 expectedPermissions.add(buttonText);
                 actualPermissions.add(buttonText);
                 System.out.println(buttonText);
             }
         }
 
-        Assert.assertEquals(actualPermissions, expectedPermissions,
-                "Permissions mismatch!");
+        Assert.assertEquals(actualPermissions, expectedPermissions, "Permissions mismatch!");
+        Assert.assertEquals(count, 94, "Number of permissions is not 94!");
     }
 }
