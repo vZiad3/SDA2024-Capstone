@@ -39,7 +39,7 @@ public class US0007 {
         Assert.assertTrue(departmentsPage.DeptCard.isDisplayed());
 
 
-        }
+    }
 
 
     @Test

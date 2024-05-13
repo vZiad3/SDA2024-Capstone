@@ -3,7 +3,6 @@ package tests.RemoteUnit;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.LogInPage;
 import pages.RemoteUnitsPage;
 import utilities.Driver;
 

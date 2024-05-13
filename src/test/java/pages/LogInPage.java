@@ -40,9 +40,15 @@ public class LogInPage {
 
     }
 
-    public void enterLogin(){
+
+    public void defaultLogin2(){
         Driver.getDriver().get(ConfigReader.getProperty("website"));
         loginButton.click();
+        usernameField.sendKeys(ConfigReader.getProperty("email5"));
+        passwordField.sendKeys(ConfigReader.getProperty("password5"));
+        singIn.click();
+
+
     }
 
 }
