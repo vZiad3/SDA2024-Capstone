@@ -24,10 +24,15 @@ public class HomePage {
     private WebElement permissionIcon;
 
     @FindBy(xpath = "//li[@class='list-group-item'][@id='link4']")
-
     public WebElement companyButton;
 
 
+<<<<<<< HEAD
+
+    public void remoteUnitClick()
+    {
+        log.defaultLogin();
+=======
     @FindBy(id = "link2")
     public  WebElement mempership ;
 
@@ -50,11 +55,20 @@ public WebElement slider;
             throw new RuntimeException(e);
         }
 
+>>>>>>> b23687b515ce3e1e386f7c8f1e47f3a415eff62e
         //Click on "Remote Units" icon on the side menu.
         remoteUnitIcon.click();
 
     }
+<<<<<<< HEAD
+
+
+
+    public void roleClick()
+    {
+=======
     public void roleClick() {
+>>>>>>> b23687b515ce3e1e386f7c8f1e47f3a415eff62e
         log.defaultLogin();
         //Click on "Remote Units" icon on the side menu.
         rolesicon.click();
@@ -63,6 +77,7 @@ public WebElement slider;
     public void permissionIconClick()
     {
         log.defaultLogin();
+
         //Click on "Remote Units" icon on the side menu.
         permissionIcon.click();
     }
@@ -92,6 +107,8 @@ public WebElement slider;
         companyButton.click();
     }
 
+<<<<<<< HEAD
+=======
     public void mempershipclick() {
         log.defaultLogin();
         //Click on "Mepership" icon on the side menu.
@@ -111,5 +128,6 @@ public WebElement slider;
         //Click on "Departments" icon on the side menu.
         TeammP.click();
     }
+>>>>>>> b23687b515ce3e1e386f7c8f1e47f3a415eff62e
 
 }
