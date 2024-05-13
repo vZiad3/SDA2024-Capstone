@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //package tests.teamsModulesProcess;
 //
 //import org.openqa.selenium.By;
@@ -129,7 +129,6 @@
 //
 //    }
 //}
-=======
 package tests.teamsModulesProcess;
 
 import org.openqa.selenium.Keys;
@@ -201,4 +200,3 @@ public class US0013  {
         teamsModulePage.errorMsgType();
     }
 }
->>>>>>> 6763d5b7ec4750f844cfa3c62d21cb5d24059abe
