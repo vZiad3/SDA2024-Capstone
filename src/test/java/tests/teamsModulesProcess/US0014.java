@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.TeamModulesProcess;
+import utilities.Driver;
 
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class US0014 {
     @AfterMethod
     public void tearDown(){
 
-        //Driver.tearDown();
+        Driver.tearDown();
 
     }
     @Test
