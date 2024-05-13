@@ -29,7 +29,7 @@ public class US0013  {
     @AfterMethod
     public void tearDown(){
 
-        //Driver.tearDown();
+        Driver.tearDown();
 
     }
     @Test
