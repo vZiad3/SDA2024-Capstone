@@ -24,6 +24,9 @@ public class US_0010 {
         Assert.assertTrue(remoteUnitsPage.remoteUnitDisplayed());
 
         Driver.tearDown();
+       Assert.assertTrue(remoteUnitsPage.remoteUnitDisplayed());
+       Driver.tearDown();
+
     }
 
     @Test

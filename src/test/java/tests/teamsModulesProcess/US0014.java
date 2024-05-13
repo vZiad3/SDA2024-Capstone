@@ -7,6 +7,7 @@ import pages.HomePage;
 import pages.TeamModulesProcess;
 import utilities.Driver;
 
+
 import java.util.List;
 
 public class US0014 {
@@ -14,22 +15,24 @@ public class US0014 {
     HomePage homePage;
     TeamModulesProcess teamModulesProcess;
 
-    @BeforeMethod
-    public void setUp(){
+    /* @BeforeMethod
+     public void setUp(){
 
-        homePage = new HomePage();
-        teamModulesProcess = new TeamModulesProcess();
+         homePage = new HomePage();
+         teamModulesProcess = new TeamModulesProcess();
 
-    }
+     }
 
-    @AfterMethod
-    public void tearDown(){
+     @AfterMethod
+     public void tearDown(){
 
-        Driver.tearDown();
+         Driver.tearDown();
 
-    }
+     }*/
     @Test
     public void TC0014_01() throws InterruptedException {
+        homePage = new HomePage();
+        teamModulesProcess = new TeamModulesProcess();
         //User can edit the teams displayed in the Teams module.
         //Steps
         //Navigate to the Teams module
@@ -39,9 +42,8 @@ public class US0014 {
         //Save changes
 
         homePage.teammp();
-        TeamModulesProcess teamsModulePage = new TeamModulesProcess();
-        teamsModulePage.ValidEdit();
-        teamsModulePage.SuccessEdit();
+        teamModulesProcess.ValidEdit();
+        teamModulesProcess.SuccessEdit();
 
 
     }
@@ -57,6 +59,8 @@ public class US0014 {
         homePage.teammp();
         TeamModulesProcess teamsModulePage = new TeamModulesProcess();
         teamsModulePage.deleteTeam();
+
+
 
     }
 }
