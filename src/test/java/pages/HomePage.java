@@ -37,4 +37,19 @@ public class HomePage {
         DeptP.click();
     }
 
+
+    @FindBy(xpath = "//*[@class='list-group-item'][@id='link7']")
+    public WebElement TeammP;
+
+    //-----------------------------------------------
+    //Department page
+//-----------------------------------------------
+    public void teammp()
+    {
+
+        log.defaultLogin();
+        //Click on "Departments" icon on the side menu.
+        TeammP.click();
+    }
+
 }
