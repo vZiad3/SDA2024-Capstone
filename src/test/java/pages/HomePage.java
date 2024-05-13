@@ -12,7 +12,6 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
     LogInPage log;
-    ReusableMethods reusableMethods = new ReusableMethods();
 
 
     @FindBy(id = "link6")
@@ -31,7 +30,7 @@ public class HomePage {
            log = new LogInPage();
            log.defaultLogin();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -78,7 +77,10 @@ public class HomePage {
         companyButton.click();
     }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6763d5b7ec4750f844cfa3c62d21cb5d24059abe
     public void teammp()
     {
 

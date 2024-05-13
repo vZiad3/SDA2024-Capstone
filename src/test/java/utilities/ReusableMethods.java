@@ -1,5 +1,8 @@
 package utilities;
 
+
+import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -19,6 +22,9 @@ import java.util.function.Function;
 public class ReusableMethods {
     protected static WebDriver driver;
 
+
+    public static String takeScreenshot(String fileName) throws IOException {
+
         // TakesScreenshot is an interface of selenium that takes the screenshot
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
@@ -34,6 +40,8 @@ public class ReusableMethods {
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
         return target;
+    }
+
 
     //========Switching Window=====//
     public static void switchToWindow(String targetTitle) {
@@ -70,7 +78,7 @@ public class ReusableMethods {
         List<String> elemTexts = new ArrayList<>();
         for (WebElement el : elems) {
             if (!el.getText().isEmpty()) {
-                elemTexts.add(el.getText());
+               elemTexts.add(el.getText());
             }
         }
         return elemTexts;
@@ -150,4 +158,6 @@ public class ReusableMethods {
 
         return element;
     }
+
+}
 
