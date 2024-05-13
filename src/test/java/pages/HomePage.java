@@ -66,6 +66,10 @@ public class HomePage {
         //Click on "Departments" icon on the side menu.
         DeptP.click();
     }
+// team
+    @FindBy(xpath = "//*[@class='list-group-item'][@id='link7']")
+    public WebElement TeammP;
+
 
 
     public void companyClick(){
@@ -74,18 +78,13 @@ public class HomePage {
         companyButton.click();
     }
 
-    public void EnterRemoteUnitClick() {
-        log = new LogInPage();
-        log.enterLogin();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        //Click on "Remote Units" icon on the side menu.
-        remoteUnitIcon.click();
 
+    public void teammp()
+    {
+
+        log.defaultLogin();
+        //Click on "Departments" icon on the side menu.
+        TeammP.click();
     }
-
 
 }
