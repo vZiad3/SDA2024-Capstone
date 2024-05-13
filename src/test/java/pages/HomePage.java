@@ -4,13 +4,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class HomePage {
 
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    LogInPage log = new LogInPage();
+    LogInPage log;
+    ReusableMethods reusableMethods = new ReusableMethods();
 
 
     @FindBy(id = "link6")
@@ -25,6 +27,7 @@ public class HomePage {
 
     public WebElement companyButton;
 
+<<<<<<< HEAD
     @FindBy(id = "link2")
     public  WebElement mempership ;
 
@@ -41,8 +44,19 @@ public WebElement slider;
     public void remoteUnitClick()
     {
         log.defaultLogin();
+=======
+    public void remoteUnitClick() {
+           log = new LogInPage();
+           log.defaultLogin();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+>>>>>>> 6763d5b7ec4750f844cfa3c62d21cb5d24059abe
         //Click on "Remote Units" icon on the side menu.
         remoteUnitIcon.click();
+
     }
     public void roleClick()
     {
@@ -71,6 +85,10 @@ public WebElement slider;
         //Click on "Departments" icon on the side menu.
         DeptP.click();
     }
+// team
+    @FindBy(xpath = "//*[@class='list-group-item'][@id='link7']")
+    public WebElement TeammP;
+
 
 
     public void companyClick(){
@@ -79,6 +97,7 @@ public WebElement slider;
         companyButton.click();
     }
 
+<<<<<<< HEAD
     public void mempershipclick()
     {
         log.defaultLogin();
@@ -96,3 +115,15 @@ public WebElement slider;
 
 
 }
+=======
+
+    public void teammp()
+    {
+
+        log.defaultLogin();
+        //Click on "Departments" icon on the side menu.
+        TeammP.click();
+    }
+
+}
+>>>>>>> 6763d5b7ec4750f844cfa3c62d21cb5d24059abe
