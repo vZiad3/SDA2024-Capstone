@@ -26,6 +26,24 @@ public class HomePage {
 
     public WebElement companyButton;
 
+
+    @FindBy(id = "link2")
+    public  WebElement mempership ;
+
+@FindBy(xpath ="//div[@class='col-9']")
+public WebElement buttun;
+
+
+@FindBy(xpath = "//*[@id='Header']/div/div/div/button")
+public WebElement slider;
+
+
+
+
+    public void remoteUnitClick()
+    {
+        log.defaultLogin();
+
     public void remoteUnitClick() {
            log = new LogInPage();
            log.defaultLogin();
@@ -34,6 +52,7 @@ public class HomePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
         //Click on "Remote Units" icon on the side menu.
         remoteUnitIcon.click();
 
@@ -77,10 +96,26 @@ public class HomePage {
         companyButton.click();
     }
 
-<<<<<<< HEAD
-=======
+    public void mempershipclick()
+    {
+        log.defaultLogin();
+        //Click on "Mepership" icon on the side menu.
+        mempership.click();
+    }
 
->>>>>>> 6763d5b7ec4750f844cfa3c62d21cb5d24059abe
+    public void clickSliderButton() {
+        log.defaultLogin();
+        // Click on the slider button.
+        slider.click();
+    }
+
+
+
+
+}
+
+
+
     public void teammp()
     {
 
