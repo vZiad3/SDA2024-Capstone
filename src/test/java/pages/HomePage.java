@@ -8,6 +8,7 @@ import utilities.ReusableMethods;
 
 public class HomePage {
 
+
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
@@ -30,23 +31,19 @@ public class HomePage {
     @FindBy(id = "link2")
     public  WebElement mempership ;
 
-@FindBy(xpath ="//div[@class='col-9']")
-public WebElement buttun;
+    @FindBy(xpath ="//div[@class='col-9']")
+    public WebElement buttun;
 
 
-@FindBy(xpath = "//*[@id='Header']/div/div/div/button")
-public WebElement slider;
+    @FindBy(xpath = "//*[@id='Header']/div/div/div/button")
+    public WebElement slider;
 
 
 
-
-    public void remoteUnitClick()
-    {
-        log.defaultLogin();
 
     public void remoteUnitClick() {
-           log = new LogInPage();
-           log.defaultLogin();
+        log = new LogInPage();
+        log.defaultLogin();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -57,8 +54,7 @@ public WebElement slider;
         remoteUnitIcon.click();
 
     }
-    public void roleClick()
-    {
+    public void roleClick() {
         log.defaultLogin();
         //Click on "Remote Units" icon on the side menu.
         rolesicon.click();
@@ -74,30 +70,29 @@ public WebElement slider;
     @FindBy(xpath = "//*[@class='list-group-item'][@id='link5']")
     public WebElement DeptP;
 
-//-----------------------------------------------
+    //-----------------------------------------------
     //Department page
 //-----------------------------------------------
     public void deptP()
     {
-
+        log= new LogInPage();
         log.defaultLogin();
         //Click on "Departments" icon on the side menu.
         DeptP.click();
     }
-// team
+    // team
     @FindBy(xpath = "//*[@class='list-group-item'][@id='link7']")
     public WebElement TeammP;
 
 
 
     public void companyClick(){
-       // log.defaultLogin();
+        // log.defaultLogin();
         //Click on "Company" icon on the side menu.
         companyButton.click();
     }
 
-    public void mempershipclick()
-    {
+    public void mempershipclick() {
         log.defaultLogin();
         //Click on "Mepership" icon on the side menu.
         mempership.click();
@@ -110,33 +105,11 @@ public WebElement slider;
     }
 
 
-
-
-}
-
-
-
-    public void teammp()
-    {
+    public void teammp() {
 
         log.defaultLogin();
         //Click on "Departments" icon on the side menu.
         TeammP.click();
     }
 
-
-    @FindBy(xpath = "//*[@class='list-group-item'][@id='link7']")
-    public WebElement TeammP;
-
-    //-----------------------------------------------
-    //Department page
-//-----------------------------------------------
-//    public void teammp()
-//    {
-//
-//        log.defaultLogin();
-//        //Click on "Departments" icon on the side menu.
-//        TeammP.click();
-//    }
-
-}
+};

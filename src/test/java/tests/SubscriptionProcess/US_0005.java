@@ -1,4 +1,4 @@
-package SubscriptionProcess;
+package tests.SubscriptionProcess;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
